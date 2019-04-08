@@ -7,6 +7,11 @@
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
   },
+  "author": {
+    "name": "José Zúñiga",
+    "email": "zuniga.joseignacio@gmail.com",
+    "url": "https://github.com/JoseZunigaDyehs"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
