@@ -2,11 +2,12 @@ import React from 'react';
 import {useStateValue} from "./state";
 
 const App = () => {
-  const [{generalStates}, dispatch] = useStateValue();
+  const [{theme}, dispatch] = useStateValue();
+  debugger
   return(
     <div>
-    {generalStates.first}
-    <button onClick={()=>dispatch({type:"COUNT"})}>Click</button>
+    {theme.primary}
+    <button style={{color:theme.primary}} onClick={()=>dispatch({type:"changeTheme",newTheme:"red"})}>Click</button>
     </div>
   )
 };

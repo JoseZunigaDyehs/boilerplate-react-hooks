@@ -4,7 +4,8 @@ export const generalStates = {
 }
 
 export const generalReducer = (state = generalStates, action) => {
-  // var newState = Object.assign({}, state);
+  var newState = Object.assign({}, state);
+  debugger
   switch (action.type) {
     case "COUNT":
     debugger
