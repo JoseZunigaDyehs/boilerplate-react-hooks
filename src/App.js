@@ -2,10 +2,12 @@ import React from 'react';
 import {useStateValue} from "./state";
 
 const App = () => {
-  debugger
-  const [{first},dispatch] = useStateValue();
+  const [{generalStates}, dispatch] = useStateValue();
   return(
-    <div>Hola</div>
+    <div>
+    {generalStates.first}
+    <button onClick={()=>dispatch({type:"COUNT"})}>Click</button>
+    </div>
   )
 };
 

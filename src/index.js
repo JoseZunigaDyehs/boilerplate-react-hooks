@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { StateProvider } from "./state";
-import {mainReducer} from "./reducers/index";
+import {mainReducer, initialStates} from "./reducers/index";
 
 ReactDOM.render(
-  <StateProvider initialState={mainReducer} reducer={mainReducer}>
+  <StateProvider initialState={initialStates} reducer={mainReducer}>
     <App />
   </StateProvider>,
   document.getElementById("root")

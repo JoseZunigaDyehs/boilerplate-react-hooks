@@ -1,11 +1,16 @@
-export const generalReducer = (state = {
-    first: "HOLA"
-}, action) => {
+
+export const generalStates = {
+  first: 0
+}
+
+export const generalReducer = (state = generalStates, action) => {
+  // var newState = Object.assign({}, state);
   switch (action.type) {
-    case "changeTheme":
+    case "COUNT":
+    debugger
       return {
         ...state,
-        theme: action.newTheme
+        first: state.first + 1 
       };
 
     default:
