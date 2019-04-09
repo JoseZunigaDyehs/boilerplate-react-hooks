@@ -1,15 +1,19 @@
-import React from 'react';
-import {useStateValue} from "./state";
+import React from "react";
+import { useStateValue } from "./store/store";
 
 const App = () => {
-  const [{theme}, dispatch] = useStateValue();
-  debugger
-  return(
+  const [{ generalStates }, dispatch] = useStateValue();
+  // debugger;
+  return (
     <div>
-    {theme.primary}
-    <button style={{color:theme.primary}} onClick={()=>dispatch({type:"changeTheme",newTheme:"red"})}>Click</button>
+      {generalStates.get("count")}
+      <button
+        onClick={() => dispatch({ state: generalStates, type: "INCREMENT" })}
+      >
+        Click
+      </button>
     </div>
-  )
+  );
 };
 
 export default App;

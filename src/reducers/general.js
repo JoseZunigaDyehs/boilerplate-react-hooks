@@ -1,20 +1,15 @@
+import * as Immutable from "immutable";
 
-export const generalStates = {
-  first: 0
-}
+export const generalStates = Immutable.fromJS({
+  count: 0
+});
 
-export const generalReducer = (state = generalStates, action) => {
-  var newState = Object.assign({}, state);
-  debugger
+export const generalReducer = (state, action) => {
   switch (action.type) {
-    case "COUNT":
-    debugger
-      return {
-        ...state,
-        first: state.first + 1 
-      };
+    case "INCREMENT":
+      return action.state.set("count", action.state.get("count") + 1);
 
     default:
-      return state;
+      return action.state;
   }
 };
