@@ -1,18 +1,30 @@
 import React from "react";
-import { useStateValue } from "./store/store";
+import Button from "./Button";
+import { StoreProvider } from "./store/store";
 
 const App = () => {
-  const [{ generalStates }, dispatch] = useStateValue();
-  // debugger;
+  const initialState = {
+    generalStates: { count: 0 }
+  };
+
+  const reducer = (state, action) => {
+    debugger
+    switch (action.type) {
+      case "INCREMENT":
+        return {
+          ...state,
+          generalStates: {count: state.generalStates.count + 1}
+        };
+
+      default:
+        return state;
+    }
+  };
+
   return (
-    <div>
-      {generalStates.get("count")}
-      <button
-        onClick={() => dispatch({ state: generalStates, type: "INCREMENT" })}
-      >
-        Click
-      </button>
-    </div>
+    <StoreProvider initialState={initialState} reducer={reducer}>
+      <Button />
+    </StoreProvider>
   );
 };
 
