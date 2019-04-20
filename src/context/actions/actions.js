@@ -15,10 +15,13 @@ export const useActions = (state, dispatch) => {
   function reset() {
     dispatch({ type: types.RESET });
   }
-
+  function value20(data) {
+    dispatch({ type: types.VALUE20, data });
+  }
   return {
     increment,
     decrement,
-    reset
-  };
+    reset,
+    value20
+  }
 };

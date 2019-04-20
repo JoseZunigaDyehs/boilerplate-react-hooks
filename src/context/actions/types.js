@@ -1,5 +1,6 @@
 export const types = {
     INCREMENT: "INCREMENT",
     DECREMENT: "DECREMENT",
-    RESET:"RESET"
+    RESET:"RESET",
+    VALUE20: "VALUE20"
   };
