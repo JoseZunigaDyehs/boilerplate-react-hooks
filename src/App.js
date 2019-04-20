@@ -1,31 +1,15 @@
-import React from "react";
-import Button from "./Button";
-import { StoreProvider } from "./store/store";
+import React, { useContext } from "react";
+import { StoreContext } from "./context/store/storeContext";
 
 const App = () => {
-  const initialState = {
-    generalStates: { count: 0 }
-  };
+  const { state, actions } = useContext(StoreContext);
 
-  const reducer = (state, action) => {
-    debugger
-    switch (action.type) {
-      case "INCREMENT":
-        return {
-          ...state,
-          generalStates: {count: state.generalStates.count + 1}
-        };
-
-      default:
-        return state;
-    }
-  };
-
-  return (
-    <StoreProvider initialState={initialState} reducer={reducer}>
-      <Button />
-    </StoreProvider>
-  );
+  return <div>
+    <p>{state.count}</p>
+    <button onClick={()=>{actions.increment()}}>INCREMENT</button>
+    <button onClick={()=>{actions.decrement()}}>DECREMENT</button>
+    <button onClick={()=>{actions.reset()}}>INCREMENT</button>
+  </div>;
 };
 
 export default App;
