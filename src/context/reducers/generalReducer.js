@@ -1,5 +1,6 @@
 import { types } from "../actions/types";
 
+//Se exporta para luego pasarlos al initialStates
 export const generalStates = {
   count: 0
 }
