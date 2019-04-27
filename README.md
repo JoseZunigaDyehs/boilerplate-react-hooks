@@ -1,6 +1,12 @@
 # Boilerplate React Hooks
 This is a boilerplate created whit create-react-app to use React Hooks and Context API like Redux Architecture
 
+<br />
+
+<div align="center">
+  <sub>Created by <a href="https://github.com/JoseZunigaDyehs">José Zúñiga</a></sub>
+</div>
+
 #### Demo
 Functional demo
 [Go demo](https://josezunigadyehs.github.io/boilerplate-react-hooks/)
@@ -10,15 +16,21 @@ Due to the new features of ReactJS, it is possible to create an architecture and
 
 This is posible working with the new ReactJS Context and Hooks APIs.
 
+## Inspiration
+I'd inspired by two posts in Medium 
+
+1. [State Management with React Hooks and Context API in 10 lines of code!](https://medium.com/simply/state-management-with-react-hooks-and-context-api-at-10-lines-of-code-baf6be8302c)
+2. [Replace Redux state with React Hooks and Context](https://itnext.io/replace-redux-state-with-react-hooks-and-context-7906e0fd5521)
+
+
 ## Features
 _React.js_ - **React >16.8.0**💎
 
 ## Quick start
 
 1. Clone this repo using `git clone https://github.com/JoseZunigaDyehs/boilerplate-react-hooks.git`
-2. Move to the appropriate directory: `cd react-redux-boilerplate`.<br />
-3. Run `yarn` or `npm install` to install dependencies.<br />
-4. Run `npm start` to see the example app at `http://localhost:3000`.
+2. Run `yarn` or `npm install` to install dependencies.<br />
+3. Run `npm start` to see the example app at `http://localhost:3000`.
 
 Now you're ready build your beautiful React Application working with an architecture and state managment like Redux!
 
