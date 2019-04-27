@@ -1,6 +1,6 @@
 import { generalStates } from '../reducers/generalReducer'
 
-//Index con todos los states sacados de los reduces por separado
+//Export object with all separate state from reducers
 export const initialState = {
   generalStates
 };

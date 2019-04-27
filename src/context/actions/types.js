@@ -1,6 +1,7 @@
+//I`m not using types constant
 export const types = {
     INCREMENT: "INCREMENT",
     DECREMENT: "DECREMENT",
     RESET:"RESET",
-    VALUE20: "VALUE20"
+    SET_VALUE: "SET_VALUE"
   };

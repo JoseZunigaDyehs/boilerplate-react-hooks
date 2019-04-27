@@ -1,14 +1,22 @@
-import { types } from "./types";
-
-export function increment(dispatch) {
-  dispatch({ type: types.INCREMENT });
+//Export actions receiving an object {state,dispatch}
+export const generalActions = (props) => {
+  return {
+    increment:  () => {
+      props.dispatch({ type: "INCREMENT" });
+    },
+    decrement: () => {
+      props.dispatch({ type: "DECREMENT" });
+    },
+    reset: () => {
+      props.dispatch({ type: "RESET" });
+    },
+    setValue: (data) => {
+      // props.dispatch({ type: "SET_VALUE", data });
+      externSetValue(props,data); // Extern function
+    }
+  }
 }
-export function decrement(dispatch) {
-  dispatch({ type: types.DECREMENT });
-}
-export function reset(dispatch) {
-  dispatch({ type: types.RESET });
-}
-export function value20(dispatch, data) {
-  dispatch({ type: types.VALUE20, data });
+// You can externalize the functions
+function externSetValue(props,data) {
+  props.dispatch({ type: "SET_VALUE", data});
 }

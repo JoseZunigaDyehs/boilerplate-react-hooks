@@ -4,6 +4,11 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { StoreProvider } from "./context/store/storeContext";
 
+/**
+ * RENDER 
+ * Store provider
+ * - App Principal Child function
+ */
 ReactDOM.render(
   <StoreProvider>
     <App />

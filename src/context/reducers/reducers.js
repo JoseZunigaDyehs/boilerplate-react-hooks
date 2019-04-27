@@ -1,12 +1,16 @@
 import { initialState } from "../initial/initialStates";
-import { types } from "../actions/types";
 import { generalReducer } from './generalReducer'
 
-//Retorna los states separados, los cuales tienen el reducer separado y se les pasa su state y la action
+/**
+ * Export initialState and reducer
+ * 
+ * reducer function, returns separate states,
+ * Which have a separate reducer, who receives state and action.
+ */
 const reducer = (state = initialState, action) => {
   return {
     generalStates: generalReducer(state.generalStates,action)
   }
 };
 
-export { initialState, types, reducer };
+export { initialState, reducer };
