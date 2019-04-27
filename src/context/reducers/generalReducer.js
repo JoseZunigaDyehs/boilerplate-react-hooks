@@ -1,9 +1,7 @@
-//Define and export states of reducer
 export const generalStates = {
   count: 0
 }
 
-//Export reducer
 export const generalReducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT":

@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { StoreContext } from "./context/store/storeContext";
 
-/**
- * Principal Component
- */
 const App = () => {
   const { state, actions } = useContext(StoreContext);
   const valueRandom = () => {

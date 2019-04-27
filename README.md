@@ -53,6 +53,8 @@ Now you're ready build your React Application working with an architecture and s
     └── README.md
 
 ### Index.js
+Render StoreProvider App Principal with a child function.
+
 `````
 import React from "react";
 import ReactDOM from "react-dom";
@@ -60,11 +62,6 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { StoreProvider } from "./context/store/storeContext";
 
-/**
- * RENDER 
- * Store provider
- * - App Principal Child function
- */
 ReactDOM.render(
   <StoreProvider>
     <App />
@@ -72,22 +69,19 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
 `````
 
 ### App.js
+Principal function, it can use `{ state, actions }` as parameter using useContext method and passing the StoreContext Hook.
+It Have handle functions that dispatch functions to actions functions 
+
 `````
 
 import React, { useContext } from "react";
 import { StoreContext } from "./context/store/storeContext";
 
-/**
- * Principal Component
- */
 const App = () => {
   const { state, actions } = useContext(StoreContext);
   const valueRandom = () => {
@@ -116,11 +110,32 @@ export default App;
 
 `````
 
-## Context Architecture '/context'
+## Context Architecture
+Here is the magic!
 
-### /actions/generalActions.js
+### ACTIONS
+
+### /actions/index.js
+ Export object with functions for each separate action, that receives an object {state,dispatch}
+ Return every actions 
+ 
 `````
-//Export actions receiving an object {state,dispatch}
+import { generalActions } from './generalActions'
+
+export const useActions = (state, dispatch) => {
+  return {
+    generalActions: generalActions({state,dispatch}),
+  }
+};
+
+`````
+
+### generalActions.js
+Export actions receiving an object { state, dispatch } to access to state or dispatch the actions.
+
+You can externalize the functions for complex logic.
+
+`````
 export const generalActions = (props) => {
   return {
     increment:  () => {
@@ -134,44 +149,26 @@ export const generalActions = (props) => {
     },
     setValue: (data) => {
       // props.dispatch({ type: "SET_VALUE", data });
-      externSetValue(props,data); // Extern function
+      externSetValue(props,data);
     }
   }
 }
-// You can externalize the functions
+
 function externSetValue(props,data) {
   props.dispatch({ type: "SET_VALUE", data});
 }
 
 `````
 
-### /actions/index.js
-`````
-import { generalActions } from './generalActions'
-
-/**
- * Export object with functions for each separate action, that receives an object {state,dispatch}
- * Return every actions 
- */
-export const useActions = (state, dispatch) => {
-  return {
-    generalActions: generalActions({state,dispatch}),
-  }
-};
-
-`````
-
 ### /reducers/reducer.js
+Export initialState and reducer reducer function, 
+
+reducer function returns separate states, which is a separate reducer, who receives state and action.
+
 `````
 import { initialState } from "../state/initialStates";
 import { generalReducer } from './generalReducer'
 
-/**
- * Export initialState and reducer
- * 
- * reducer function, returns separate states,
- * Which have a separate reducer, who receives state and action.
- */
 const reducer = (state = initialState, action) => {
   return {
     generalStates: generalReducer(state.generalStates,action)
@@ -183,13 +180,12 @@ export { initialState, reducer };
 `````
 
 ### /reducers/generalReducer.js
+Define and export states and reducer
 `````
-//Define and export states of reducer
 export const generalStates = {
   count: 0
 }
 
-//Export reducer
 export const generalReducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT":
@@ -221,10 +217,11 @@ export const generalReducer = (state, action) => {
 
 
 ### /states/initialStates.js
+Exports an object with all separate state from reducers
+
 `````
 import { generalStates } from '../reducers/generalReducer'
 
-//Export object with all separate state from reducers
 export const initialState = {
   generalStates
 };
@@ -233,23 +230,26 @@ export const initialState = {
 `````
 
 ### /store/storeContext.js
+Exports StoreContext and StoreProvider.
+
+It get the state and dispatch from new API useReducer `[ state, dispatch ]`.
+It get the actions from useActions and pass it to Context `actions`.
+You can use all Hooks here like `useEffect`, in this case, to show the new state.
+It's return a Provider that receive a value with `{ state, dispatch, actios }`, it's encapsulate a children function to render.
+ 
 `````
 import { initialState, reducer } from "../reducers/reducers";
 import { useActions } from "../actions";
 import React, { createContext, useReducer, useEffect } from "react";
 
-/**
- * Export StoreContext and StoreProvider
- */
 const StoreContext = createContext(initialState);
 const StoreProvider = ({ children }) => {
-  // Get state and dispatch from Reacts new API useReducer.
+
   const [state, dispatch] = useReducer(reducer, initialState);
-  // Get actions from useActions and pass it to Context
   const actions = useActions(state, dispatch);
-  // Log new state
+
   useEffect(() => console.log({ newState: state }), [state]);
-  // Render state, dispatch and actions
+
   return (
     <StoreContext.Provider value={{ state, dispatch, actions }}>
       {children}

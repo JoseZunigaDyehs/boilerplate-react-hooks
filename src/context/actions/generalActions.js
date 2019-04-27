@@ -1,4 +1,3 @@
-//Export actions receiving an object {state,dispatch}
 export const generalActions = (props) => {
   return {
     increment:  () => {
@@ -12,11 +11,11 @@ export const generalActions = (props) => {
     },
     setValue: (data) => {
       // props.dispatch({ type: "SET_VALUE", data });
-      externSetValue(props,data); // Extern function
+      externSetValue(props,data);
     }
   }
 }
-// You can externalize the functions
+
 function externSetValue(props,data) {
   props.dispatch({ type: "SET_VALUE", data});
 }
