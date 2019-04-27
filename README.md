@@ -160,6 +160,8 @@ function externSetValue(props,data) {
 
 `````
 
+### REDUCERS
+
 ### reducers/reducer.js
 Export initialState and reducer reducer function, 
 
@@ -215,6 +217,7 @@ export const generalReducer = (state, action) => {
 
 `````
 
+### STATES
 
 ### states/initialStates.js
 Exports an object with all separate state from reducers
@@ -226,8 +229,9 @@ export const initialState = {
   generalStates
 };
 
-
 `````
+
+### STORE
 
 ### store/storeContext.js
 Exports StoreContext and StoreProvider.
