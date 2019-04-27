@@ -118,7 +118,7 @@ export default App;
 
 ## Context Architecture '/context'
 
-## /actions/generalActions.js
+### /actions/generalActions.js
 `````
 //Export actions receiving an object {state,dispatch}
 export const generalActions = (props) => {
@@ -145,7 +145,7 @@ function externSetValue(props,data) {
 
 `````
 
-## /actions/index.js
+### /actions/index.js
 `````
 import { generalActions } from './generalActions'
 
@@ -161,7 +161,7 @@ export const useActions = (state, dispatch) => {
 
 `````
 
-## /reducers/reducer.js
+### /reducers/reducer.js
 `````
 import { initialState } from "../state/initialStates";
 import { generalReducer } from './generalReducer'
@@ -182,7 +182,7 @@ export { initialState, reducer };
 
 `````
 
-## /reducers/generalReducer.js
+### /reducers/generalReducer.js
 `````
 //Define and export states of reducer
 export const generalStates = {
@@ -220,7 +220,7 @@ export const generalReducer = (state, action) => {
 `````
 
 
-## /states/initialStates.js
+### /states/initialStates.js
 `````
 import { generalStates } from '../reducers/generalReducer'
 
@@ -232,7 +232,7 @@ export const initialState = {
 
 `````
 
-## /store/storeContext.js
+### /store/storeContext.js
 `````
 import { initialState, reducer } from "../reducers/reducers";
 import { useActions } from "../actions";
