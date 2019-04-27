@@ -1,4 +1,4 @@
-import { initialState } from "../initial/initialStates";
+import { initialState } from "../state/initialStates";
 import { generalReducer } from './generalReducer'
 
 /**
