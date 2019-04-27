@@ -116,7 +116,7 @@ Here is the magic!
 ### ACTIONS
 
 ### /actions/index.js
- Export object with functions for each separate action, that receives an object {state,dispatch}
+ Export object with functions for each separate action, that receives an object `{state,dispatch}`
  Return every actions 
  
 `````
@@ -131,7 +131,7 @@ export const useActions = (state, dispatch) => {
 `````
 
 ### generalActions.js
-Export actions receiving an object { state, dispatch } to access to state or dispatch the actions.
+Export actions receiving an object `{ state, dispatch }` to access to state or dispatch the actions.
 
 You can externalize the functions for complex logic.
 
@@ -232,9 +232,13 @@ export const initialState = {
 ### /store/storeContext.js
 Exports StoreContext and StoreProvider.
 
+
 It get the state and dispatch from new API useReducer `[ state, dispatch ]`.
+
 It get the actions from useActions and pass it to Context `actions`.
+
 You can use all Hooks here like `useEffect`, in this case, to show the new state.
+
 It's return a Provider that receive a value with `{ state, dispatch, actios }`, it's encapsulate a children function to render.
  
 `````
