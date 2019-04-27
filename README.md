@@ -115,7 +115,7 @@ Here is the magic!
 
 ### ACTIONS
 
-### /actions/index.js
+### actions/index.js
  Export object with functions for each separate action, that receives an object `{state,dispatch}`
  Return every actions 
  
@@ -130,7 +130,7 @@ export const useActions = (state, dispatch) => {
 
 `````
 
-### generalActions.js
+### actions/generalActions.js
 Export actions receiving an object `{ state, dispatch }` to access to state or dispatch the actions.
 
 You can externalize the functions for complex logic.
@@ -160,7 +160,7 @@ function externSetValue(props,data) {
 
 `````
 
-### /reducers/reducer.js
+### reducers/reducer.js
 Export initialState and reducer reducer function, 
 
 reducer function returns separate states, which is a separate reducer, who receives state and action.
@@ -179,7 +179,7 @@ export { initialState, reducer };
 
 `````
 
-### /reducers/generalReducer.js
+### reducers/generalReducer.js
 Define and export states and reducer
 `````
 export const generalStates = {
@@ -216,7 +216,7 @@ export const generalReducer = (state, action) => {
 `````
 
 
-### /states/initialStates.js
+### states/initialStates.js
 Exports an object with all separate state from reducers
 
 `````
@@ -229,7 +229,7 @@ export const initialState = {
 
 `````
 
-### /store/storeContext.js
+### store/storeContext.js
 Exports StoreContext and StoreProvider.
 
 
