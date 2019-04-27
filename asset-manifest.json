@@ -1,11 +1,11 @@
 {
-  "main.js": "/static/js/main.852395f1.chunk.js",
-  "main.js.map": "/static/js/main.852395f1.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/js/2.8b94e47a.chunk.js": "/static/js/2.8b94e47a.chunk.js",
-  "static/js/2.8b94e47a.chunk.js.map": "/static/js/2.8b94e47a.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.4ad45754d1d020446a7e117967a4f760.js": "/precache-manifest.4ad45754d1d020446a7e117967a4f760.js",
-  "service-worker.js": "/service-worker.js"
+  "main.js": "/boilerplate-react-hooks/static/js/main.4c190c12.chunk.js",
+  "main.js.map": "/boilerplate-react-hooks/static/js/main.4c190c12.chunk.js.map",
+  "runtime~main.js": "/boilerplate-react-hooks/static/js/runtime~main.3a0cce32.js",
+  "runtime~main.js.map": "/boilerplate-react-hooks/static/js/runtime~main.3a0cce32.js.map",
+  "static/js/2.8b94e47a.chunk.js": "/boilerplate-react-hooks/static/js/2.8b94e47a.chunk.js",
+  "static/js/2.8b94e47a.chunk.js.map": "/boilerplate-react-hooks/static/js/2.8b94e47a.chunk.js.map",
+  "index.html": "/boilerplate-react-hooks/index.html",
+  "precache-manifest.2cd253aad1a8d4c61ac961c4d3229a5f.js": "/boilerplate-react-hooks/precache-manifest.2cd253aad1a8d4c61ac961c4d3229a5f.js",
+  "service-worker.js": "/boilerplate-react-hooks/service-worker.js"
 }
