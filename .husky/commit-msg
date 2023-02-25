@@ -6,6 +6,8 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 LIGHTGREEN='\033[1;32m'
 
+echo "$GIT_AUTHOR_NAME - Author name"
+
 msg="$(grep -v '^#' $1)" 
 authors_whitelist=("Lee Jones" "Senik Hakobyan")
 MESSAGE_PATTERNS=(
