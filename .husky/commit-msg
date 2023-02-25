@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+LIGHTGREEN='\033[1;32m'
+
+msg="$(grep -v '^#' $1)" 
+authors_whitelist=("Lee Jones" "Senik Hakobyan")
+MESSAGE_PATTERNS=(
+  "^GRP\-[0-9]+[[:blank:]](FIX|CHANGE|HOTFIX|FEATURE){1}[[:blank:]](CORE|SHARED|ADM|CSR|BUS|OTHER){1}[[:blank:]]-[[:blank:]]\([[:alnum:]./\-]+\)[[:blank:]]:[[:blank:]]([[:alnum:],.\-]+[[:blank:]]?){10,}$"
+  "^GRP\-[0-9]+[[:blank:]](FIX|CHANGE|HOTFIX|FEATURE){1}[[:blank:]](CORE|SHARED|ADM|CSR|BUS|OTHER){1}[[:blank:]]-[[:blank:]]([[:alnum:],.\-]+[[:blank:]]?){10,}$" 
+)
+
+if [[ "${authors_whitelist[*]}" =~ ${GIT_AUTHOR_NAME} ]]; then
+  exit 0
+fi
+
+for i in ${MESSAGE_PATTERNS[@]}
+do
+  : 
+    if [[ "${msg}" =~ $i ]]; then
+      exit 0
+    fi 
+done
+
+echo "${RED}Please provide valid commit message${RED}"
+echo "Our standard commit message pattern is ${GREEN}GRP-CARD_NUMBER FIX|CHANGE|HOTFIX|FEATURE CORE|SHARED|ADM|CSR|BUS|OTHER - (File location[not required]) : Commit description${GREEN}\n"
+echo "${BLUE}Some valid examples here:${BLUE}\n"
+echo "${LIGHTGREEN}GRP-0888 CHANGE BUS - Change styles in dashboard ${LIGHTGREEN}"
+echo "${LIGHTGREEN}GRP-0888 HOTFIX CORE - Fix checkbox unchecking issue ${LIGHTGREEN}"
+echo "${LIGHTGREEN}GRP-0888 FIX OTHER - (jest.config.js) Fix testMatch option issue ${LIGHTGREEN}"
+echo "${LIGHTGREEN}GRP-0888 CHANGE BUS - (pages/dashboard) : Change styles ${LIGHTGREEN}"
+echo "${LIGHTGREEN}GRP-0888 HOTFIX CORE - (components/checkbox) : Fix checkbox unchecking issue ${LIGHTGREEN}\n"
+
+echo "${RED}Commit description should contain at least 10 alphanumeric characters separated by a single space:${RED}\n"
+exit 1
