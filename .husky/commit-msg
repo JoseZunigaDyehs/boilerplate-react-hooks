@@ -9,6 +9,7 @@ LIGHTGREEN='\033[1;32m'
 echo "$GIT_AUTHOR_NAME - Author name"
 
 msg="$(grep -v '^#' $1)" 
+echo "$msg - commit message"
 authors_whitelist=("Lee Jones" "Senik Hakobyan")
 MESSAGE_PATTERNS=(
   "^GRP\-[0-9]+[[:blank:]](FIX|CHANGE|HOTFIX|FEATURE){1}[[:blank:]](CORE|SHARED|ADM|CSR|BUS|OTHER){1}[[:blank:]]-[[:blank:]]\([[:alnum:]./\-]+\)[[:blank:]]:[[:blank:]]([[:alnum:],.\-]+[[:blank:]]?){10,}$"
